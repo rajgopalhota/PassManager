@@ -9,7 +9,7 @@ function maskPassword(pass) {
 function copyText(txt) {
   navigator.clipboard.writeText(txt).then(
     () => {
-        showCustomAlert("Copied to clipboard!")
+      showCustomAlert("Copied to clipboard!");
     },
     () => {
       /* clipboard write failed */
@@ -34,7 +34,7 @@ const showPasswords = () => {
   let tb = document.querySelector("table");
   let data = localStorage.getItem("passwords");
   if (data == null || JSON.parse(data).length == 0) {
-    tb.innerHTML = "No Data To Show";
+    tb.style.display = "none";
   } else {
     tb.innerHTML = `<tr>
         <th>Website</th>
@@ -48,17 +48,23 @@ const showPasswords = () => {
       const element = arr[index];
 
       str += `<tr>
-    <td>${element.website} <img onclick="copyText('${
+    <td>${
+      element.website
+    } <i class="fa-solid fa-clipboard " onclick="copyText('${
         element.website
-      }')" src="./copy.svg" alt="Copy Button" width="10" width="10" height="10">
+      }')" />
     </td>
-    <td>${element.username} <img onclick="copyText('${
+    <td>${
+      element.username
+    } <i class="fa-solid fa-clipboard " onclick="copyText('${
         element.username
-      }')" src="./copy.svg" alt="Copy Button" width="10" width="10" height="10">
+      }')" />
     </td>
-    <td>${maskPassword(element.password)} <img onclick="copyText('${
+    <td>${maskPassword(
+      element.password
+    )} <i class="fa-solid fa-clipboard " onclick="copyText('${
         element.password
-      }')" src="./copy.svg" alt="Copy Button" width="10" width="10" height="10">
+      }')" />
     </td>
     <td><button class="btn-sm" onclick="deletePassword('${
       element.website
@@ -92,6 +98,7 @@ document.querySelector(".btn").addEventListener("click", (e) => {
       });
       showCustomAlert("Password Saved");
       localStorage.setItem("passwords", JSON.stringify(json));
+      showPasswords()
     } else {
       let json = JSON.parse(localStorage.getItem("passwords"));
       json.push({
@@ -101,6 +108,7 @@ document.querySelector(".btn").addEventListener("click", (e) => {
       });
       showCustomAlert("Password Saved");
       localStorage.setItem("passwords", JSON.stringify(json));
+      showPasswords()
     }
     showPasswords();
   }

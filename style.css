@@ -9,23 +9,31 @@
 }
 
 body {
-  background-color: #f0f0f0;
+  /* background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%); */
+  background-image: url(./5478774.jpg);
+  background-size: cover;
   margin: 0;
   padding: 0;
 }
 
 nav {
-  background-color: #333;
+  /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+  background-image: url(./nv.jpg);
+  background-size: cover;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 30px;
   display: flex;
   justify-content: space-between;
+  box-shadow: rgba(50, 50, 93, 0.508) 0px 13px 27px -5px, rgba(0, 0, 0, 0.53) 0px 8px 16px -8px;
 }
 
 .logo {
   font-weight: 800;
   font-size: 28px;
   cursor: pointer;
+}
+.logo img{
+  width: 50px;
 }
 
 ul {
@@ -40,16 +48,27 @@ ul > li {
   transition: color 0.3s ease;
 }
 
-ul > li:hover {
-  color: #f0f0f0;
+nav li a {
+  color: white;
+  text-decoration: none;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+nav li a:hover {
+  transition: all 0.2s linear;
+  text-decoration: none;
+  color: rgb(255, 227, 218);
+  letter-spacing: 1px;
 }
 
 .container {
   max-width: 80%;
-  margin: 30px auto;
+  margin: 40px auto;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff68;
+  backdrop-filter: blur(32px);
+  box-shadow: rgba(50, 50, 93, 0.707) 0px 50px 100px -20px, rgba(0, 0, 0, 0.707) 0px 30px 60px -30px;
   border-radius: 8px;
 }
 
@@ -71,7 +90,9 @@ h3 {
 }
 
 .btn:hover {
+  transition: all linear 0.2s;
   background-color: #555;
+  transform: scale(1.03);
 }
 .table-container {
   overflow-x: auto; /* Add horizontal scrolling when needed */
@@ -79,12 +100,14 @@ h3 {
 table {
   width: 100%;
   /* overflow-x: auto; */
+  margin: 20px 0;
   border-collapse: collapse;
+  background-image: linear-gradient(45deg, #ebc0fd 0%, #d9ded8 100%);
 }
 table,
 td,
 th {
-  border: 1px solid #ddd;
+  border: 2px solid #000000;
 }
 
 td,
@@ -110,7 +133,9 @@ th {
 }
 
 .btn-sm:hover {
+  transition: all linear 0.2s;
   background-color: #555;
+  transform: scale(1.03);
 }
 
 .alert {
@@ -130,12 +155,14 @@ th {
 /* Style for text input */
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  min-width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-image: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
   margin-bottom: 15px;
   font-size: 16px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 /* Style for submit button */
@@ -153,7 +180,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #555;
 }
-table img {
+table i {
   cursor: pointer;
 }
 
@@ -174,19 +201,15 @@ table img {
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
-    align-items: center;
+    font-size: 12px;
   }
 
-  nav .logo {
-    margin: 10px 0;
+  nav ul li {
+    margin: 5px 13px;
   }
 
-  ul {
-    margin: 0;
-  }
-
-  ul > li {
-    margin: 0 10px;
+  nav ul {
+    justify-content: center;
   }
 
   .container {
@@ -222,3 +245,36 @@ table img {
 
 /* Your existing styles here for larger screens */
 /* ... */
+footer {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  backdrop-filter: blur(42px);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.829);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 0 12px rgb(25, 25, 25);
+}
+footer a {
+  text-decoration: none;
+  color: antiquewhite;
+}
+footer a:hover {
+  transition: all ease 0.2s;
+  letter-spacing: 2px;
+  color: white;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+section {
+  min-height: 100vh;
+}
